@@ -10,6 +10,11 @@ describe("Account Mongo Repository", () => {
     await MongooseHelper.disconnect();
   });
 
+  beforeEach(async () => {
+    const accountColletion = MongooseHelper.getCollection("accounts");
+    await accountColletion.deleteMany({});
+  });
+
   test("Should return an account on sucess ", async () => {
     const sut = new AccountMongoRepository();
     const account = await sut.add({
