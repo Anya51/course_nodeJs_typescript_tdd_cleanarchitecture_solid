@@ -1,5 +1,6 @@
 import { MongooseHelper } from "../helpers/mongoose-helpers";
 import { AccountMongoRepository } from "./account";
+import { AccountSchema } from "../schemas/account";
 
 describe("Account Mongo Repository", () => {
   beforeAll(async () => {
@@ -11,7 +12,10 @@ describe("Account Mongo Repository", () => {
   });
 
   beforeEach(async () => {
-    const accountColletion = MongooseHelper.getCollection("accounts");
+    const accountColletion = MongooseHelper.getCollection(
+      "accounts",
+      AccountSchema
+    );
     await accountColletion.deleteMany({});
   });
 

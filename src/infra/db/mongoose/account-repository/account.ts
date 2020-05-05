@@ -1,7 +1,7 @@
 import { AddAccountRepository } from "../../../../data/protocols/add-account-repository";
 import { AddAccountModel } from "../../../../domain/usecases/addaccount";
 import { AccountModel } from "../../../../domain/models/account";
-import { AccountSchema } from "../../mongoose/schemas/account";
+import { AccountSchema } from "../schemas/account";
 import { MongooseHelper } from "../helpers/mongoose-helpers";
 
 export class AccountMongoRepository implements AddAccountRepository {

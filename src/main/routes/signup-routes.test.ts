@@ -1,6 +1,7 @@
 import request from "supertest";
 import app from "../config/app";
-import { MongooseHelper } from "../../infra/db/mongodb/helpers/mongoose-helpers";
+import { MongooseHelper } from "../../infra/db/mongoose/helpers/mongoose-helpers";
+import { AccountSchema } from "../../infra/db/mongoose/schemas/account";
 
 describe("SignUp Routes", () => {
   beforeAll(async () => {
@@ -12,7 +13,10 @@ describe("SignUp Routes", () => {
   });
 
   beforeEach(async () => {
-    const accountColletion = MongooseHelper.getCollection("accounts");
+    const accountColletion = MongooseHelper.getCollection(
+      "accounts",
+      AccountSchema
+    );
     await accountColletion.deleteMany({});
   });
 

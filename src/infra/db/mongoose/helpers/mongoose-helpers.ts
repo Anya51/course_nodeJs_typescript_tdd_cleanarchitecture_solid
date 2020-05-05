@@ -14,8 +14,8 @@ export const MongooseHelper = {
     this.client.connection.close();
   },
 
-  getCollection(name: string, schema?: Schema): Collection {
-    const model = this.client.model(name, schema);
+  getCollection(name: string, schema?: Schema): any {
+    const model = mongoose.model(name, schema);
     return model;
   },
 
